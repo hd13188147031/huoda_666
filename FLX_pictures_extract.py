@@ -171,26 +171,9 @@ def install():
         for row in pictures():
             ws.append(row)
         # 保存Excel文件
-        if parmas['site_id']==755038:
-            name = '大鹏区'
-        elif parmas['site_id'] ==755039:
-            name ='福田区'
-        elif parmas['site_id'] ==755527:
-            name ='罗湖区'
-        elif parmas['site_id'] ==755042:
-            name ='盐田区'
-        elif parmas['site_id'] ==755040:
-            name ='南山区'
-        elif parmas['site_id'] ==755037:
-            name ='宝安区'
-        elif parmas['site_id'] ==755043:
-            name ='龙岗区'
-        elif parmas['site_id'] ==755044:
-            name ='龙华区'
-        elif parmas['site_id'] ==755041:
-            name ='坪山区'
-        elif parmas['site_id'] ==755046:
-            name ='光明区'
+        add = {'755038':'大鹏区','755039':'福田区','755527':'罗湖区','755042':'盐田区','755040':'南山区',
+               '755037':'宝安区','755043':'龙岗区','755044':'龙华区','755041':'坪山区','755046':'光明区'}
+        name = add.get(str(parmas['site_id']))
         wb.save(f"{name}图片_（{star}_{end}）.xlsx")
     except PermissionError:
         print('请关闭excle文档')
